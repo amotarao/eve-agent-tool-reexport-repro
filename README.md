@@ -56,6 +56,12 @@ registry, which dispatches it to the shared subagent workflow.
 Nothing is reported at build time: `eve info` shows the tool with 0 diagnostics, and the compiled
 manifest still carries `"handling": { "kind": "dispatch", "action": "self-agent" }`.
 
+## Control
+
+Remove `defaultTools: false` and delete `agent/tools/agent.ts`, so `agent` comes from the framework
+default, and the same prompt spawns a child (`subagent.completed` with an `agentId` and `taskId`).
+Verified on eve 0.55.0.
+
 ## Why
 
 `createPreparedRuntimeTool` (`packages/eve/src/runtime/tools/registry.ts`) attaches the subagent
